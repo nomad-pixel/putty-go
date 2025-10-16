@@ -2,8 +2,6 @@ package app
 
 import (
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/widget"
 )
 
 type MainWindow struct {
@@ -12,8 +10,8 @@ type MainWindow struct {
 }
 
 func NewMainWindow(app fyne.App) *MainWindow {
-	window := app.NewWindow("Termius Go")
-	window.Resize(fyne.NewSize(800, 600))
+	window := app.NewWindow("Putty Go")
+	window.Resize(fyne.NewSize(1000, 700))
 	window.CenterOnScreen()
 
 	return &MainWindow{
@@ -31,29 +29,6 @@ func (mw *MainWindow) SetContent(content fyne.CanvasObject) {
 }
 
 func (mw *MainWindow) CreateMainContent() fyne.CanvasObject {
-	title := widget.NewLabel("Termius Go - SSH клиент")
-	title.Alignment = fyne.TextAlignCenter
-
-	connectBtn := widget.NewButton("Подключиться к серверу", mw.onConnect)
-	settingsBtn := widget.NewButton("Настройки", mw.onSettings)
-	aboutBtn := widget.NewButton("О программе", mw.onAbout)
-
-	content := container.NewVBox(
-		title,
-		widget.NewSeparator(),
-		connectBtn,
-		settingsBtn,
-		aboutBtn,
-	)
-
-	return content
-}
-
-func (mw *MainWindow) onConnect() {
-}
-
-func (mw *MainWindow) onSettings() {
-}
-
-func (mw *MainWindow) onAbout() {
+	navigation := NewNavigation(mw)
+	return navigation.GetContent()
 }
