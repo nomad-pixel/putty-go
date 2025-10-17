@@ -1,39 +1,39 @@
 # Termius Go
 
-Графическое приложение SSH клиента, написанное на Go с использованием библиотеки Fyne.
+A graphical SSH client application written in Go using the Fyne library.
 
-## Возможности
+## Features
 
-- Кроссплатформенный GUI (Windows, macOS, Linux)
-- Подключение к SSH серверам
-- Сохранение настроек
-- Современный интерфейс
+- Cross-platform GUI (Windows, macOS, Linux)
+- SSH server connections
+- Settings persistence
+- Modern interface
 
-## Требования
+## Requirements
 
-- Go 1.21 или выше
-- CGO (для компиляции Fyne)
+- Go 1.21 or higher
+- CGO (for Fyne compilation)
 
-## Установка зависимостей
+## Installing Dependencies
 
 ```bash
 go mod tidy
 ```
 
-## Запуск приложения
+## Running the Application
 
 ```bash
 go run main.go
 ```
 
-## Сборка
+## Building
 
-### Для текущей платформы:
+### For current platform:
 ```bash
 go build -o putty-go
 ```
 
-### Для других платформ:
+### For other platforms:
 ```bash
 # Windows
 GOOS=windows GOARCH=amd64 go build -o putty-go.exe
@@ -45,26 +45,26 @@ GOOS=linux GOARCH=amd64 go build -o putty-go
 GOOS=darwin GOARCH=amd64 go build -o putty-go
 ```
 
-## Структура проекта
+## Project Structure
 
 ```
 putty-go/
-├── main.go                 # Точка входа приложения
-├── go.mod                  # Модуль Go
+├── main.go                 # Application entry point
+├── go.mod                  # Go module
 ├── internal/
 │   ├── app/
-│   │   └── window.go       # Главное окно приложения
+│   │   └── window.go       # Main application window
 │   └── config/
-│       └── config.go       # Конфигурация приложения
-└── README.md               # Документация
+│       └── config.go       # Application configuration
+└── README.md               # Documentation
 ```
 
-## Разработка
+## Development
 
-Приложение использует архитектуру с разделением на пакеты:
-- `internal/app` - логика приложения и GUI
-- `internal/config` - управление конфигурацией
+The application uses a package-based architecture:
+- `internal/app` - application logic and GUI
+- `internal/config` - configuration management
 
-## Лицензия
+## License
 
 MIT
